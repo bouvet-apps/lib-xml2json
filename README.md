@@ -12,6 +12,11 @@ repositories {
 }
 ```
 
+You also need to add the library as a dependency:
+```
+include "com.github.bouvet-apps:lib-xml2json:1.0.0"
+```
+
 ## Usage
 ```
 var xml2json = require("/lib/bouvet/xml2json");
