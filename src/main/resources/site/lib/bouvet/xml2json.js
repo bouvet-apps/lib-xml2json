@@ -5,7 +5,7 @@
  * @returns {object} JSON object
  */
 function parseString(xmlString) {
-  var bean = __.newBean('no.bouvet.lib.xml2json.XmlParser');
+  var bean = __.newBean('no.bouvet.xp.lib.xml2json.XmlParser');
   var result = bean.parseString(xmlString);
   return __.toNativeObject(result);
 }
@@ -19,7 +19,7 @@ exports.parseString = parseString;
 * @returns {object} JSON object
 */
 function parseStream(xmlStream) {
-  var bean = __.newBean('no.bouvet.lib.xml2json.XmlParser');
+  var bean = __.newBean('no.bouvet.xp.lib.xml2json.XmlParser');
   var result = bean.parseStream(xmlStream);
   return __.toNativeObject(result);
 }
