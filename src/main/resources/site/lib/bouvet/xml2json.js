@@ -4,20 +4,24 @@
  * @param xmlString XML string to convert
  * @returns {object} JSON object
  */
-exports.parseString = (xmlString) => {
-  const bean = __.newBean("no.bouvet.xp.lib.xml2json.XmlParser");
-  const result = bean.parseString(xmlString);
+function parseString(xmlString) {
+  var bean = __.newBean('no.bouvet.lib.xml2json.XmlParser');
+  var result = bean.parseString(xmlString);
   return __.toNativeObject(result);
-};
+}
+
+exports.parseString = parseString;
 
 /**
- * Converts an xml stream to json object
- *
- * @param xmlStream XML stream to convert
- * @returns {object} JSON object
- */
-exports.parseStream = (xmlStream) => {
-  const bean = __.newBean("no.bouvet.xp.lib.xml2json.XmlParser");
-  const result = bean.parseStream(xmlStream);
+* Converts an xml stream to json object
+*
+* @param xmlStream XML stream to convert
+* @returns {object} JSON object
+*/
+function parseStream(xmlStream) {
+  var bean = __.newBean('no.bouvet.lib.xml2json.XmlParser');
+  var result = bean.parseStream(xmlStream);
   return __.toNativeObject(result);
-};
+}
+
+exports.parseStream = parseStream;
