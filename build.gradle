@@ -1,0 +1,37 @@
+plugins {
+  id "com.enonic.xp.app" version "1.2.0"
+}
+
+compileJava.options.encoding = "UTF-8"
+
+xp {
+  version = xpVersion
+}
+
+app {
+  name = project.ext.appName
+  displayName = project.ext.displayName
+  vendorName = project.ext.vendorName
+  vendorUrl = project.ext.vendorUrl
+  systemVersion = xpVersion
+
+}
+
+dependencies {
+	compile "com.enonic.xp:core-api:${xpVersion}"
+  compile "com.enonic.xp:portal-api:${xpVersion}"
+  include "org.json:json:20160810"
+}
+
+repositories {
+	mavenLocal()
+	jcenter()
+	xp.enonicRepo()
+}
+
+version = "${jarVersion}"
+
+wrapper {
+    gradleVersion = '4.10.3'
+    distributionType = Wrapper.DistributionType.BIN
+}
