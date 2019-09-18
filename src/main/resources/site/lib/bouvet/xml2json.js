@@ -34,7 +34,7 @@ exports.parseStream = parseStream;
 */
 function toXml(jsonObject) {
   var bean = __.newBean('no.bouvet.xp.lib.xml2json.JsonConverter');
-  var result = bean.parseStream(xmlStream);
+  var result = bean.toXml(jsonObject);
   return __.toNativeObject(result);
 }
 
