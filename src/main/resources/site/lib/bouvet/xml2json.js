@@ -25,3 +25,17 @@ function parseStream(xmlStream) {
 }
 
 exports.parseStream = parseStream;
+
+/**
+* Converts json object to an xml string
+*
+* @param jsonObject JSON object to convert
+* @returns {string} XML string
+*/
+function toXml(jsonObject) {
+  var bean = __.newBean('no.bouvet.xp.lib.xml2json.JsonConverter');
+  var result = bean.parseStream(xmlStream);
+  return __.toNativeObject(result);
+}
+
+exports.toXml = toXml;
