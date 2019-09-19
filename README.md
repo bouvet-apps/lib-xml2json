@@ -14,7 +14,7 @@ repositories {
 
 You also need to add the library as a dependency:
 ```
-include "com.github.bouvet-apps:lib-xml2json:1.0.0"
+include "com.github.bouvet-apps:lib-xml2json:1.1.0"
 ```
 
 ## Usage
