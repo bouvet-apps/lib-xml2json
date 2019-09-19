@@ -13,7 +13,7 @@ public class JsonConverter {
 
     public String toXml(final String jsonString) throws Exception {
       System.out.println(jsonString);
-      return XML.toString(new JSONObject(jsonObject));
+      return XML.toString(new JSONObject(jsonString));
     }
 }
 
