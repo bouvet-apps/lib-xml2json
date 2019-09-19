@@ -27,7 +27,7 @@ function parseStream(xmlStream) {
 exports.parseStream = parseStream;
 
 /**
-* Converts json object to an xml string
+* Converts json string or object to an xml string
 *
 * @param jsonObject JSON object to convert
 * @returns {string} XML string
