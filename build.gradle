@@ -1,8 +1,13 @@
 plugins {
+    id 'java'
+    id 'maven-publish'
+    id "com.github.node-gradle.node" version "5.0.0"
     id "com.enonic.xp.app" version "3.0.0"
 }
 
 compileJava.options.encoding = "UTF-8"
+sourceCompatibility = "1.11"
+targetCompatibility = "1.11"
 
 xp {
     version = xpVersion
@@ -24,7 +29,8 @@ dependencies {
 
 repositories {
 	mavenLocal()
-	jcenter()
+    mavenCentral()
+    jcenter()
 	xp.enonicRepo()
 }
 
