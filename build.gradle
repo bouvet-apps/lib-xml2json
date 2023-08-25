@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'maven-publish'
     id "com.enonic.xp.app" version "3.4.0"
+    id "com.github.node-gradle.node" version "7.0.0"
 }
 
 sourceCompatibility = "1.11"
@@ -39,6 +40,18 @@ repositories {
     jcenter()
 	xp.enonicRepo()
     maven { url 'https://jitpack.io' }
+}
+
+node {
+    // Version of node to use.
+    version = '18.17.1'
+
+    // Version of npm to use.
+    npmVersion = '9.8.1'
+
+    // If true, it will download node using above parameters.
+    // If false, it will try to use globally installed node.
+    download = true
 }
 
 wrapper {
