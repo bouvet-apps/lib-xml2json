@@ -35,8 +35,10 @@ dependencies {
 
 repositories {
 	mavenLocal()
+    mavenCentral()
     jcenter()
 	xp.enonicRepo()
+    maven { url 'https://jitpack.io' }
 }
 
 wrapper {
