@@ -13,7 +13,7 @@ app {
 dependencies {
     implementation "com.enonic.xp:core-api:${xpVersion}"
     implementation "com.enonic.xp:portal-api:${xpVersion}"
-    include "org.json:json:20160810"
+    include "org.json:json:20230618"
 }
 
 repositories {
