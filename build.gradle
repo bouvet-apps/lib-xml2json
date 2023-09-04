@@ -1,37 +1,44 @@
 plugins {
-  id "com.enonic.xp.app" version "1.2.0"
+    id 'maven-publish'
+    id "com.enonic.xp.app" version "3.4.0"
 }
 
-compileJava.options.encoding = "UTF-8"
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = "${group}"
+            artifactId = "${projectName}"
+            version = "${version}"
 
-xp {
-  version = xpVersion
+            from components.java
+        }
+    }
 }
 
 app {
-  name = project.ext.appName
-  displayName = project.ext.displayName
-  vendorName = project.ext.vendorName
-  vendorUrl = project.ext.vendorUrl
-  systemVersion = xpVersion
-
+    name = project.ext.appName
+    displayName = project.ext.displayName
+    vendorName = project.ext.vendorName
+    vendorUrl = project.ext.vendorUrl
+    systemVersion = "${xpVersion}"
 }
 
 dependencies {
-	compile "com.enonic.xp:core-api:${xpVersion}"
-  compile "com.enonic.xp:portal-api:${xpVersion}"
-  include "org.json:json:20160810"
+    implementation "com.enonic.xp:core-api:${xpVersion}"
+    implementation "com.enonic.xp:portal-api:${xpVersion}"
+    include "org.json:json:20230618"
 }
 
 repositories {
 	mavenLocal()
-	jcenter()
+    mavenCentral()
+    jcenter()
 	xp.enonicRepo()
 }
 
 version = "${jarVersion}"
 
 wrapper {
-    gradleVersion = '4.10.3'
+    gradleVersion = '8.1.1'
     distributionType = Wrapper.DistributionType.BIN
 }
