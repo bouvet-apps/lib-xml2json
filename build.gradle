@@ -1,6 +1,6 @@
 plugins {
     id 'maven-publish'
-    id "com.enonic.xp.app" version "3.4.0"
+    id "com.enonic.xp.app" version "3.6.1"
 }
 
 publishing {
@@ -32,13 +32,12 @@ dependencies {
 repositories {
 	mavenLocal()
     mavenCentral()
-    jcenter()
 	xp.enonicRepo()
 }
 
 version = "${jarVersion}"
 
 wrapper {
-    gradleVersion = '8.1.1'
+    gradleVersion = '8.11.1'
     distributionType = Wrapper.DistributionType.BIN
 }

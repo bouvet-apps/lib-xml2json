@@ -14,11 +14,11 @@ repositories {
 
 You also need to add the library as a dependency:
 ```
-include "com.github.bouvet-apps:lib-xml2json:1.1.0"
+include "com.github.bouvet-apps:lib-xml2json:2.0.1"
 ```
 
 ## Usage
 ```
-var xml2json = require("/lib/bouvet/xml2json");
-var json = xml2json.parseString("<xml><dummy>Dummy content</dummy></xml>");
+const xml2json = require("/lib/bouvet/xml2json");
+const json = xml2json.parseString("<xml><dummy>Dummy content</dummy></xml>");
 ```
