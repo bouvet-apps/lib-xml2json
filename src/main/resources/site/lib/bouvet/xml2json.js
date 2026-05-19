@@ -1,3 +1,6 @@
+const xmlParserBean = __.newBean('no.bouvet.xp.lib.xml2json.XmlParser');
+const jsonConverterBean = __.newBean('no.bouvet.xp.lib.xml2json.JsonConverter');
+
 /**
  * Converts an xml string to json object
  *
@@ -5,8 +8,7 @@
  * @returns {object} JSON object
  */
 function parseString(xmlString) {
-  var bean = __.newBean('no.bouvet.xp.lib.xml2json.XmlParser');
-  var result = bean.parseString(xmlString);
+  const result = xmlParserBean.parseString(xmlString);
   return __.toNativeObject(result);
 }
 
@@ -19,8 +21,7 @@ exports.parseString = parseString;
 * @returns {object} JSON object
 */
 function parseStream(xmlStream) {
-  var bean = __.newBean('no.bouvet.xp.lib.xml2json.XmlParser');
-  var result = bean.parseStream(xmlStream);
+  const result = xmlParserBean.parseStream(xmlStream);
   return __.toNativeObject(result);
 }
 
@@ -33,12 +34,11 @@ exports.parseStream = parseStream;
 * @returns {string} XML string
 */
 function toXml(jsonObject) {
-  var bean = __.newBean('no.bouvet.xp.lib.xml2json.JsonConverter');
-  var json = jsonObject;
-  if (typeof json === 'object') {
+  let json = jsonObject;
+  if (json !== null && typeof json === 'object') {
     json = JSON.stringify(json);
   }
-  var result = bean.toXml(json);
+  const result = jsonConverterBean.toXml(json);
   return __.toNativeObject(result);
 }
 
