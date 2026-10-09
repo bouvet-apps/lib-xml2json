@@ -1,6 +1,7 @@
 plugins {
+    id 'java'
     id 'maven-publish'
-    id "com.enonic.xp.app" version "3.6.1"
+    id 'com.enonic.xp.base'
 }
 
 publishing {
@@ -15,18 +16,33 @@ publishing {
     }
 }
 
-app {
-    name = project.ext.appName
-    displayName = project.ext.displayName
-    vendorName = project.ext.vendorName
-    vendorUrl = project.ext.vendorUrl
-    systemVersion = "${xpVersion}"
+configurations {
+    include {
+        canBeConsumed = false
+        transitive = false
+    }
+    implementation.extendsFrom include
 }
 
 dependencies {
-    implementation "com.enonic.xp:core-api:${xpVersion}"
-    implementation "com.enonic.xp:portal-api:${xpVersion}"
+    implementation xplibs.api.core
+    implementation xplibs.api.portal
     include "org.json:json:20230618"
+
+    testImplementation "com.enonic.xp:testing:${xpVersion}"
+    testImplementation platform('org.junit:junit-bom:6.0.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.named('jar') {
+    from({ configurations.include.collect { zipTree(it) } }) {
+        exclude 'META-INF/MANIFEST.MF'
+    }
 }
 
 repositories {
@@ -38,6 +54,6 @@ repositories {
 version = "${jarVersion}"
 
 wrapper {
-    gradleVersion = '8.11.1'
+    gradleVersion = '9.5.0'
     distributionType = Wrapper.DistributionType.BIN
 }
